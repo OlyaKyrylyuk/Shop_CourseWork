@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@model Kursach.Models.Product
+
+    <form asp-antiforgery="true" asp-action="AddProduct" asp-controller="Admin">
+      
+        <div>
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="Name"></label><br />
+                <input type="text" asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div>
+                <label asp-for="Weight"></label><br />
+                <input type="text" asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight"></span>
+            </div>
+            <div>
+                <label asp-for="Artukyl"></label><br />
+                <input type="number" asp-for="Artukyl" class="form-control" />
+                <span asp-validation-for="Artukyl"></span>
+            </div>
+            <div>
+                <label asp-for="Photo"></label><br />
+                <input type="file" asp-for="Photo" class="form-control" />
+                <span asp-validation-for="Photo"></span>
+            </div>
+            <div>
+                <label asp-for="Type"></label><br />
+                <select asp-for="Type">
+                 <option value="Gold">Gold</option>
+                 <option value="Silver">Silver</option>
+                 </select>
+                <span asp-validation-for="Type"></span>
+            </div>
+            <div>
+                <label asp-for="Price"></label><br />
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price"></span>
+            </div>
+            <div>
+                <label asp-for="Size"></label><br />
+                <input type="number" asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size"></span>
+            </div>
+            <div>
+                <label asp-for="Description"></label><br />
+                <input type="text" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description"></span>
+            </div>
+            <div>
+                <label asp-for="Category"></label><br />
+                <select asp-for="CategoryId">
+                  @foreach (var b in ViewBag.Categories)
+                     {
+                        <option value="@b.Id">@b.Name</option>
+                      }
+
+                 </select>
+
+
+            </div>
+            <div>
+                <input type="submit" value="OK" />
+            </div>
+        </div>
+    </form>
+
+
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

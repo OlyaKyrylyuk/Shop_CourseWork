@@ -1,0 +1,121 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+.RegisterButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+.classA {
+    color: #9BFFAB;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+.RegisterButton {
+
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #7DC391;
+    color: #000000;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34.2857px;
+    line-height: 40px;
+}
+.menu {
+    width: 100%;
+    list-style-type: none;
+    background-color: #494949;
+  
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42.8571px;
+    line-height: 50px;
+   
+}
+ul {
+    display: flex;
+    flex-direction: row;
+}
+    .menu ul {
+        list-style: none;
+       
+    }
+ .menu a {
+        text-decoration: none;
+    }
+.menu a:hover {
+    color:#ffffff;
+}
+.menu ul li {
+    color: #ffffff;
+    padding: 10px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #494949;
+    color: #9BFFAB;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42.8571px;
+    line-height: 50px;
+}

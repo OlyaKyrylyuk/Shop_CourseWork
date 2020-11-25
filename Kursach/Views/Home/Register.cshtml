@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Kursach.Models.User
+    <div class="RegisterView">
+        <form asp-antiforgery="true" asp-action="Register" asp-controller="Home">
+            <div>
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <div>
+                    <label asp-for="Surname"></label><br />
+                    <input type="text" asp-for="Surname" class="form-control" />
+                    <span asp-validation-for="Surname"></span>
+                </div>
+                <div>
+                    <label asp-for="Name"></label><br />
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div>
+                    <label asp-for="Email"></label><br />
+                    <input type="email" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div>
+                    <label asp-for="Password"></label><br />
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div>
+                    <label asp-for="Phone"></label><br />
+                    <input type="number" asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone"></span>
+                </div>
+                <div class="RegisterButton">
+                    <input  type="submit" value="OK" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    @section scripts{
+
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    }

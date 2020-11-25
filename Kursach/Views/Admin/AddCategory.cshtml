@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@model Kursach.Models.Category
+
+<form asp-antiforgery="true" asp-action="AddCategory" asp-controller="Admin">
+    <div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Name"></label><br />
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name"></span>
+        </div>
+       
+        <div>
+            <input type="submit" value="Add Category" />
+        </div>
+    </div>
+</form>
+
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
