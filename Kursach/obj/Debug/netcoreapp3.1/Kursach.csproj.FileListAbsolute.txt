@@ -84,3 +84,17 @@ E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\V
 E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\AddProduct.cshtml.g.cs
 E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Admin.cshtml.g.cs
 E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Shared\User.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Categories.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Users.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\User\Contact.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Product.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Home\Product.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\User\Carts.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\User\Product.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\User\BuyReady.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Orders.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditCategory.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditProduct.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Search.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\Home\Search.cshtml.g.cs
+E:\A_University\2курс\ПВІ\Kursach\Kursach\obj\Debug\netcoreapp3.1\Razor\Views\User\Search.cshtml.g.cs

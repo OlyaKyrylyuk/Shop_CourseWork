@@ -4,7 +4,7 @@
 }
 @model Kursach.Models.Product
 
-    <form asp-antiforgery="true" asp-action="AddProduct" asp-controller="Admin">
+    <form asp-antiforgery="true" asp-action="AddProduct" asp-controller="Admin" enctype="multipart/form-data">
       
         <div>
             <div class="validation" asp-validation-summary="ModelOnly"></div>
@@ -24,49 +24,49 @@
                 <span asp-validation-for="Artukyl"></span>
             </div>
             <div>
-                <label asp-for="Photo"></label><br />
-                <input type="file" asp-for="Photo" class="form-control" />
+                <label asp-for="Photo"></label>
+                <label for="files" class="btn">Select Image</label>
+                <input id="files" type="file" style="visibility:hidden;" name="Photo" /><br>
                 <span asp-validation-for="Photo"></span>
             </div>
-            <div>
-                <label asp-for="Type"></label><br />
-                <select asp-for="Type">
-                 <option value="Gold">Gold</option>
-                 <option value="Silver">Silver</option>
-                 </select>
-                <span asp-validation-for="Type"></span>
-            </div>
-            <div>
-                <label asp-for="Price"></label><br />
-                <input type="number" asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price"></span>
-            </div>
-            <div>
-                <label asp-for="Size"></label><br />
-                <input type="number" asp-for="Size" class="form-control" />
-                <span asp-validation-for="Size"></span>
-            </div>
-            <div>
-                <label asp-for="Description"></label><br />
-                <input type="text" asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description"></span>
-            </div>
-            <div>
-                <label asp-for="Category"></label><br />
-                <select asp-for="CategoryId">
-                  @foreach (var b in ViewBag.Categories)
-                     {
-                        <option value="@b.Id">@b.Name</option>
-                      }
+                <div>
+                    <label asp-for="Type"></label><br />
+                    <select asp-for="Type">
+                        <option value="Gold">Gold</option>
+                        <option value="Silver">Silver</option>
+                    </select>
+                    <span asp-validation-for="Type"></span>
+                </div>
+                <div>
+                    <label asp-for="Price"></label><br />
+                    <input type="number" asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price"></span>
+                </div>
 
-                 </select>
+                <div>
+                    <label asp-for="Description"></label><br />
+                    <input type="text" asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div>
 
 
+                    <label asp-for="Category"></label><br />
+                    <select asp-for="CategoryId">
+                        @foreach (var b in ViewBag.Categories)
+                        {
+                            <option value="@b.Id">@b.Name</option>
+                        }
+
+                    </select>
+
+
+
+                </div>
+                <div>
+                    <input type="submit" value="OK" />
+                </div>
             </div>
-            <div>
-                <input type="submit" value="OK" />
-            </div>
-        </div>
     </form>
 
 

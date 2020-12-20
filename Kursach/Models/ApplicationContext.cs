@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Kursach.Models
 {
@@ -16,7 +18,7 @@ namespace Kursach.Models
             public DbSet<Buy> Buys { get; set; }
             public DbSet<Product> Products { get; set; }
             public DbSet<Category> Categories { get; set; }
-
+    
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
         {
@@ -24,6 +26,7 @@ namespace Kursach.Models
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+           
             string adminRoleName = "Administrator";
             string userRoleName = "User";
 

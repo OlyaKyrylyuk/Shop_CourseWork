@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Kursach.Models.Cart>
+@{
+    ViewData["Title"] = "User Page";
+    Layout = "~/Views/Shared/User.cshtml";
+}
+
+@if (ViewBag.Carts == null)
+{
+    <h1>List of products is empty</h1>
+}
+else
+{
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (var t in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="proto_border"><img class="img" src="@t.Product.Photo" alt="@t.Product.Name" /></div>
+                    <h2> @t.Product.Name </h2>
+                    <h2>Price: @t.Product.Price.ToString("c")</h2>
+                    <h2>Count @t.Count</h2>
+                    <form asp-action="Buy" asp-controller="User">
+                        <input type="submit" class="butn" value="Buy" />
+                        <input type="hidden" name="Id" value="@t.Id" class="form-control" />
+                    </form>
+                </div>
+
+            }
+        }
+    </div>
+
+}

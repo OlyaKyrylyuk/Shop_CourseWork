@@ -9,6 +9,7 @@ using Kursach.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kursach.Controllers
 {
@@ -20,11 +21,19 @@ namespace Kursach.Controllers
         {
             db = context;
         }
-
+        [HttpGet]
+        public ActionResult Product(int id)
+        {
+            var products = db.Products.Include(u => u.Category);
+            var product = products.Where(p => p.Id == id);
+            return View(product.ToList());
+        }
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var products = db.Products.Include(u => u.Category);
+            ViewBag.Products = products;
+            return View(products.ToList());
         }
      
         [HttpGet]
@@ -68,34 +77,34 @@ namespace Kursach.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
-           
-                User user1 = db.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
 
-         
-                if (user1.RoleId == 1)
-                {
-                    localId = user1.Id;
-                    Authenticates(user1.Email);
-                    return RedirectToAction("Main", "Admin", new { id = user1.Id });
-                    // return RedirectToAction("Main", "Admin", new { area = "" });
-                }
-                else if (user1.RoleId == 2)
-                {
-                    localId = user1.Id;
-                    Authenticates(user1.Email);
-                    return RedirectToAction("Main", "User", new { id = user1.Id });
-                    //return RedirectToAction("Main", "User", new { area = "" });
-                }
-
-
+             User user1 = db.Users.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
 
             
+          
+            if (user1.RoleId == 1)
+             {
+                
+                 Authenticate(user1);
+                return RedirectToAction("Main", "Admin", new { area = "" });
 
-             return View(user); 
+            }
+             else if (user1.RoleId == 2)
+             {
+                 
+                 Authenticate(user1);
+                return RedirectToAction("Main", "User", new { area = "" });
+
+            }
+            return View(user);
+           
+
+
+
         }
         public ActionResult LogOut() {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Home", "Index", new { area = "" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
         [HttpGet]
         public ActionResult Roles()
@@ -139,18 +148,43 @@ namespace Kursach.Controllers
             
           
         }
-        private  Task Authenticates(string userName)
+        [HttpGet]
+         public ActionResult Search(string searchString, string searchSelect)
         {
-          
-            var claims = new List<Claim>
+
+            var products = db.Products.Include(u => u.Category);
+            IQueryable<Product> products_search;
+
+            if (searchSelect == "Name")
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
-            };
-      
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-     
-            return HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+                products_search = products.Where(p => p.Name == searchString);
+            }
+            else if (searchSelect == "Price")
+            {
+                products_search = products.Where(p => p.Price == float.Parse(searchString));
+            }
+            else if (searchSelect == "Category")
+            {
+                products_search = products.Where(p => p.Category.Name == searchString);
+            }
+            else { products_search = null; }
+
+            ViewBag.Products = products_search;
+            return View(products_search.ToList());
+
         }
+        /*   private  Task Authenticates(string userName)
+           {
+
+               var claims = new List<Claim>
+               {
+                   new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+               };
+
+               ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+
+               return HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+           }*/
 
 
     }

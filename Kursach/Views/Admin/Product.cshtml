@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Kursach.Models.Product>
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="product">
+    @foreach (var t in Model)
+    {
+        <div class="proto_border2"><img class="img2" src="@t.Photo" alt="@t.Name" /></div>
+        <div class="textnearphoto">
+            <h2> @t.Name </h2>
+            <h2>Price: @t.Price.ToString("c")</h2>
+            <p>Category: @t.Category.Name  </p>
+            <p>Weight: @t.Weight gramm </p>
+            <p>Artukyl: @t.Artukyl  </p>
+            <p>Type: @t.Type  </p>
+            <p>Description: @t.Description  </p>
+           
+            
+                <form method="GET" asp-action="EditProduct" asp-controller="Admin">
+                    <input type="hidden" name="Id" value="@t.Id" class="form-control" />
+                    <button class="butn">Edit</button>
+                </form>
+            
+                <form asp-action="DeleteProduct" asp-controller="Admin">
+                    <input type="hidden" name="Id" value="@t.Id" class="form-control" />
+                    <button class="butn">Delete</button>
+                </form>
+            
+        </div>
+ }
+</div>
+   
+
+
+           
+  

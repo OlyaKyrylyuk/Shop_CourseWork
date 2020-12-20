@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Kursach.Models.Buy>
+
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@if (ViewBag.Buys == null)
+{
+    <h1>List of orders is empty</h1>
+}
+else
+{
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>User</th>
+
+                <th>Product Number</th>
+                <th>Count</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+            {
+
+            <tr>
+
+                <td>@b.User.Surname @b.User.Name @b.User.Phone</td>
+                <td>N: @b.Product.Artukyl<br /> Price @b.Product.Price</td>
+                <td>@b.Count</td>
+                <td>@(b.Count * b.Product.Price)</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+   
+
+}

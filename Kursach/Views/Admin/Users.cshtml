@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Surname</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in ViewBag.Users)
+        {
+
+        <tr>
+
+            <td>@user.Surname</td>
+            <td>@user.Name</td>
+            <td>@user.Email</td>
+            <td>@user.Phone</td>
+
+        </tr>
+        }
+
+    </tbody>
+</table>

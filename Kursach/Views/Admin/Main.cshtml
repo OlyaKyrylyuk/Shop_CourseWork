@@ -1,8 +1,42 @@
-﻿@{
+﻿@model IEnumerable<Kursach.Models.Product>
+
+@{
     ViewData["Title"] = "Admin Page";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
-
-
 Admin Page
-<p>@ViewBag.Id</p>
+<form asp-controller="Admin" asp-action="Search" method="get">
+    <p>
+
+        <select name="searchSelect">
+            <option value="Name">Name</option>
+            <option value="Price">Price</option>
+            <option value="Category">Category</option>
+        </select>
+
+        Title: <input type="text" name="searchString" />
+        <input type="submit" class="butn" value="Search" />
+    </p>
+</form>
+@if (ViewBag.Products == null)
+{
+    <h1>List of products is empty</h1>
+}
+else
+{
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (var t in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="proto_border"><img class="img" src="@t.Photo" alt="@t.Name" /></div>
+                    <h2> @t.Name </h2>
+                    <h2>Price: @t.Price.ToString("c")</h2>
+                    <h2>Category: @t.Category.Name</h2>
+                    <p><a class="btn btn-success" href="/Admin/Product/@t.Id">More details...</a></p>
+                </div>
+            }
+        }
+    </div>
+
+}

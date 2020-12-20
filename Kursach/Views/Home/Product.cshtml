@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Kursach.Models.Product>
+
+    @{
+        ViewData["Title"] = "Guest Page";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="product">
+        @foreach (var t in Model)
+        {
+            <div class="proto_border2"><img class="img2" src="@t.Photo" alt="@t.Name" /></div>
+            <div class="textnearphoto">
+                <h2> @t.Name </h2>
+                <h2>Price: @t.Price.ToString("c")</h2>
+                <p>Category: @t.Category.Name  </p>
+                <p>Weight: @t.Weight gramm </p>
+                <p>Artukyl: @t.Artukyl  </p>
+                <p>Type: @t.Type  </p>
+                <p>Description: @t.Description  </p>
+
+            </div>
+
+
+        }
+    </div>
+
+
+
+
+

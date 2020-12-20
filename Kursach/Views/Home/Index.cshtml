@@ -1,12 +1,45 @@
-﻿@{
+﻿@model IEnumerable<Kursach.Models.Product>
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <a asp-controller="Home" asp-action="Login">Login</a>
-    <a asp-controller="Home" asp-action="Register">Registration</a>
+    <h5 class="display-4">Welcome to our online shop! If you want to buy something, please  register or login)</h5>
 </div>
+<form asp-controller="Home" asp-action="Search" method="get">
+    <p>
+
+        <select name="searchSelect">
+            <option value="Name">Name</option>
+            <option value="Price">Price</option>
+            <option value="Category">Category</option>
+        </select>
+
+        Title: <input type="text" name="searchString" />
+        <input type="submit" class="butn" value="Search" />
+    </p>
+</form>
+@if (ViewBag.Products == null)
+{
+    <h1>List of products is empty</h1>
+}
+else
+{
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (var t in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="proto_border"><img class="img" src="@t.Photo" alt="@t.Name" /></div>
+                    <h2> @t.Name </h2>
+                    <h2>Price: @t.Price.ToString("c")</h2>
+                    <p><a class="btn btn-success" href="/Home/Product/@t.Id">More details...</a></p>
+                </div>
+            }
+        }
+    </div>
+
+}
+
+
+

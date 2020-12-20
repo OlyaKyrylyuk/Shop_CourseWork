@@ -1,33 +1,37 @@
 ﻿@{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model Kursach.Models.User
-
-<form asp-antiforgery="true" asp-action="Login" asp-controller="Home">
-    <div>
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-
-        <div>
-            <label asp-for="Email"></label><br />
-            <input type="email" asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email"></span>
-        </div>
-        <div>
-            <label asp-for="Password"></label><br />
-            <input type="password" asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password"></span>
-        </div>
-       
-        <div>
-            <input type="submit" value="OK" />
-        </div>
+    <div class="text-center">
+        <h1 class="display-4">Login Page</h1>
     </div>
-</form>
+    <div class="RegisterView">
+        <form asp-antiforgery="true" asp-action="Login" asp-controller="Home">
+            <div>
+                <div class="validation" asp-validation-summary="ModelOnly"></div>
+
+                <div>
+                    <label asp-for="Email"></label><br />
+                    <input type="email" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div>
+                    <label asp-for="Password"></label><br />
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+                <div class="RegisterButton">
+                    <input type="submit" class="butn" value="OK" />
+                </div>
+            </div>
+        </form>
+        </div>
 
 
-@section scripts{
+        @section scripts{
 
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}
+            <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        }

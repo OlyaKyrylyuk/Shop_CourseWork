@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Kursach.Models
 {
@@ -18,7 +19,7 @@ namespace Kursach.Models
         public int Artukyl { get; set; }
         [Required(ErrorMessage = "Photo is required")]
 
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
         [Required(ErrorMessage = "Type is required")]
         public string Type { get; set; }
         [Required(ErrorMessage = "Size is required")]

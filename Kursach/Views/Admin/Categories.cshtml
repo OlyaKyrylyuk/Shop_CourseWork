@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<a class="classA" href="/Admin/AddCategory">Add category</a>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in ViewBag.Category)
+        {
+
+        <tr>
+
+            <td>@category.Name</td>
+            <td>
+                <form method="GET" asp-action="EditCategory" asp-controller="Admin">
+                    <input type="hidden" name="Id" value="@category.Id" class="form-control" />
+                    <button class="butn">Edit</button>
+                </form>
+           </td>
+            <td>
+                <form asp-action="DeleteCategory" asp-controller="Admin">
+                    <input type="hidden" name="Id" value="@category.Id" class="form-control" />
+                    <button class="butn">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+        }
+
+    </tbody>
+</table>
